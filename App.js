@@ -1,11 +1,12 @@
+import React from "react"
+import ReactDOM from "react-dom/client"
+
 const heading1 = React.createElement("h1", {id: "heading1"}, "I am h1");
 const heading2 = React.createElement("h2", {id: "heading2"}, "I am h2");
 
 const children1 = React.createElement("div", {id: "child1"}, [heading1 ,heading2])
 const children2 = React.createElement("div", {id: "child2"}, [heading1 ,heading2])
 const parent = React.createElement("div", {id: "parent"}, children1, children2)
-
-console.log(parent);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
