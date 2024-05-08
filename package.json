@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "First react app by Akshay Saini",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashishmaurya1109/Namaste-React.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Ashish Maurya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashishmaurya1109/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/ashishmaurya1109/Namaste-React#readme"
+}
