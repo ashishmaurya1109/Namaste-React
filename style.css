@@ -1,4 +1,4 @@
-*{
+html{
     margin: 0;
 }
 
@@ -35,7 +35,12 @@
 }
 
 .search {
-    padding: 10px;
+    margin: 5px;
+}
+
+.topRated {
+    margin: 5px;
+    cursor: pointer;
 }
 
 .res-container {
