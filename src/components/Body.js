@@ -1,10 +1,22 @@
 import { RestaurantCard } from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// import resList from "../utils/mockData";
 
 const Body = () => {
-  const [topRes, setTopRes] = useState(resList);
-  console.log("topRes", topRes);
+  const [topRes, setTopRes] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const readableStream = await fetch(
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9079567&lng=77.640957"
+    );
+    const jsonData = await readableStream.json();
+    setTopRes(jsonData?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
+      ?.restaurants)
+  };
 
   const filterTopRes = () => {
     const filteredData = resList.filter((elem) => elem.info.avgRating > 4.4);
