@@ -1,6 +1,6 @@
 import { RestaurantCard } from "./RestaurantCard";
 import { useState, useEffect } from "react";
-// import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [topRes, setTopRes] = useState([]);
@@ -23,6 +23,10 @@ const Body = () => {
     console.log("filteredData", filteredData);
     setTopRes(filteredData);
   };
+
+  if(topRes.length === 0){
+    return <Shimmer />
+  }
 
   return (
     <div className="body">
