@@ -17,3 +17,19 @@
 - Error handling
 - Tree Shaking - remove unused code
 - Different dev and prod bundles
+
+# React Food App
+
+/*
+ * Header
+ * - Logo
+ * - Navitems
+ *Body
+ * - Search Component
+ * - Restaurant Container
+ *   - Restaurant Card
+ *Footer
+ * - Copyright
+ * - Address
+ * - Contact
+ */
