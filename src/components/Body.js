@@ -7,7 +7,7 @@ const Body = () => {
   const [topRes, setTopRes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  console.log(topRes);
+  // console.log(topRes);
 
   useEffect(() => {
     fetchData();

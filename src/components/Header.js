@@ -2,8 +2,20 @@ import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 
 const Header = () => {
-  console.log("Header");
   const [login, setLogin] = useState("Login")
+
+  //if no dependency array, useEffect called on every render
+  // useEffect(() => {
+  //   console.log("useEffect Called!");
+  // })
+  //if dependency array is empty [], useEffect is called only once on initial render
+  // useEffect(() => {
+  //   console.log("useEffect Called!");
+  // }, [])
+  //if dependency array is empty [login], useEffect is called everytime login state variable updates
+  // useEffect(() => {
+  //   console.log("useEffect Called!");
+  // }, [login])
 
   return (
     <div className="header">
