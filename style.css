@@ -34,8 +34,11 @@ html{
     /* padding-right: 10px; */
 }
 
-.search {
+.filter {
     margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .topRated {
@@ -81,4 +84,9 @@ h4 {
     width: 200px;
     border-radius: 10px;
     margin: 10px;
+}
+
+.login-btn {
+    margin: 5px;
+    cursor: pointer;
 }
