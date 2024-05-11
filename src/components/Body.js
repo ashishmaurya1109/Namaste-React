@@ -2,6 +2,7 @@ import { RestaurantCard } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { RES_API } from "../utils/constants";
 
 const Body = () => {
   const [initialData, setInitialData] = useState([]);
@@ -15,17 +16,9 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const readableStream = await fetch(
-      // "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9079567&lng=77.640957"
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9079567&lng=77.640957&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const readableStream = await fetch(RES_API);
     const jsonData = await readableStream.json();
-    // setInitialData(
-    //   jsonData?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
-    //     ?.restaurants
-    // );
-    console.log(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants);
+
     setInitialData(
       jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
