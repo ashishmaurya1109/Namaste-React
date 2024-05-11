@@ -1,21 +1,10 @@
+import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
+import About from "./About";
 
 const Header = () => {
-  const [login, setLogin] = useState("Login")
-
-  //if no dependency array, useEffect called on every render
-  // useEffect(() => {
-  //   console.log("useEffect Called!");
-  // })
-  //if dependency array is empty [], useEffect is called only once on initial render
-  // useEffect(() => {
-  //   console.log("useEffect Called!");
-  // }, [])
-  //if dependency array is empty [login], useEffect is called everytime login state variable updates
-  // useEffect(() => {
-  //   console.log("useEffect Called!");
-  // }, [login])
+  const [login, setLogin] = useState("Login");
 
   return (
     <div className="header">
@@ -24,13 +13,26 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>AboutUs</li>
-          <li>ContactUs</li>
-          <li>Cart</li>
-          <button className="login-btn" onClick={() => {
-            login === "Login" ? setLogin("Logout") : setLogin("Login")
-          }}>{login}</button>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">AboutUs</Link>
+          </li>
+          <li>
+            <Link to="/contact">ContactUs</Link>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+          <button
+            className="login-btn"
+            onClick={() => {
+              login === "Login" ? setLogin("Logout") : setLogin("Login");
+            }}
+          >
+            {login}
+          </button>
         </ul>
       </div>
     </div>
