@@ -1,33 +1,13 @@
 import { RestaurantCard } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { RES_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantData from "../utils/useRestaurantData";
 
 const Body = () => {
-  const [initialData, setInitialData] = useState([]);
-  const [topRes, setTopRes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  // console.log(topRes);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const readableStream = await fetch(RES_API);
-    const jsonData = await readableStream.json();
-
-    setInitialData(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setTopRes(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-  };
+  const {initialData, topRes, setTopRes} = useRestaurantData();
 
   const filterTopRes = () => {
     const filteredData = topRes.filter((elem) => elem.info.avgRating > 4.1);
@@ -45,6 +25,15 @@ const Body = () => {
     });
     setTopRes(filteredData);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks like you are offline, kindly check your internet connection!
+      </h1>
+    );
 
   return topRes.length === 0 ? (
     <Shimmer />
