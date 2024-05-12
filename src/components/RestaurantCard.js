@@ -4,16 +4,16 @@ export const RestaurantCard = ({ resData }) => {
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
     resData?.info;
   return (
-    <div className="res-card">
+    <div className="m-4 p-4 w-56 bg-gray-100 rounded hover:bg-gray-200">
       <img
-        className="res-image"
+        className="rounded"
         src={CDN_URL + cloudinaryImageId}
         alt="food-image"
       />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
+      <h3 className="font-bold my-2 text-lg">{name}</h3>
+      <h4 className="my-2">{cuisines.join(", ")}</h4>
+      <h4 className="font-bold my-2">Rating: {avgRating}</h4>
+      <h4 className="my-1">{costForTwo}</h4>
     </div>
   );
 };

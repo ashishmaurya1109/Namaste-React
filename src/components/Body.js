@@ -7,7 +7,7 @@ import useRestaurantData from "../utils/useRestaurantData";
 
 const Body = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const {initialData, topRes, setTopRes} = useRestaurantData();
+  const { initialData, topRes, setTopRes } = useRestaurantData();
 
   const filterTopRes = () => {
     const filteredData = topRes.filter((elem) => elem.info.avgRating > 4.1);
@@ -38,23 +38,33 @@ const Body = () => {
   return topRes.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="bg-gray-100">
+      <div className="flex">
+        <div className="p-4">
           <input
-            className="search-box"
+            className="border border-solid border-black rounded px-1"
             type="text"
             placeholder="Search..."
             value={searchTerm}
             onChange={handleChange}
           />
-          <button onClick={handleClick}>Search</button>
+          <button
+            className="m-2 px-2 py-1 bg-green-200 rounded"
+            onClick={handleClick}
+          >
+            Search
+          </button>
         </div>
-        <button className="topRated" onClick={filterTopRes}>
-          Top Rated
-        </button>
+        <div className="flex items-center">
+          <button
+            className="bg-green-200 px-2 py-1 rounded"
+            onClick={filterTopRes}
+          >
+            Top Rated
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {topRes.map((restaurant) => (
           <Link
             to={"/restaurant/" + restaurant.info.id}
